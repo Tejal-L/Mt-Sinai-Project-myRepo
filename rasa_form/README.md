@@ -1,4 +1,9 @@
 
+Working Command Line Chatbot with:
+- intent detection
+- intent confidence generation
+- multiple intent detection
+- rasa forms (still working on it)
 
 To build & edit the docs, first install all necessary dependencies:
 

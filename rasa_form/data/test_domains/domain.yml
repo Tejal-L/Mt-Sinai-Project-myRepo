@@ -1,0 +1,57 @@
+%YAML 1.1
+---
+actions:
+- utter_thanks
+- utter_name
+- utter_greet
+- utter_goodbye
+- utter_pain_query
+- action_pain_diagnose #assume have date, computer response accordingly
+- utter_numbness_query
+- utter_affirm
+- action_general_advice # custom action, assume we have checklist of patient variables
+- utter_q_and_a
+- utter_activity_precaution
+- query_
+
+- fallback # idk
+- intervene
+
+entities:
+- pain
+- name
+
+intents:
+- wellness
+- name
+- greet
+- goodbye
+- thanks
+- deny
+- affirm
+- pain_response
+- activity # play, drive, travel
+- seek_intervention
+- 
+
+slots:
+  name:
+    type: text
+  pain:
+    type: categorical
+    values:
+    - low
+    - medium
+    - high
+
+templates:
+  utter_goodbye:
+  - text: Talk to you later!
+  utter_greet:
+  - text: Nice to you meet you {name}. How can I help?
+  utter_name:
+  - text: Hey there! Tell me your name.
+  utter_thanks:
+  - text: My pleasure.
+  utter_wellness_check:
+  - text: Hey {name}! How are you?

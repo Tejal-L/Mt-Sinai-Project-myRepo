@@ -1,0 +1,42 @@
+{
+  "action_fingerprints": {
+    "action_listen": {
+      "slots": [
+        "pain_level"
+      ]
+    },
+    "utter_pain_response_low": {
+      "slots": []
+    },
+    "utter_pain_response_high": {
+      "slots": []
+    },
+    "utter_name": {
+      "slots": []
+    },
+    "utter_pain_response_med": {
+      "slots": []
+    },
+    "utter_thankful": {
+      "slots": []
+    },
+    "utter_thanks": {
+      "slots": []
+    },
+    "utter_goodbye": {
+      "slots": []
+    }
+  },
+  "rasa_core": "0.12.1",
+  "python": "3.6.7",
+  "max_histories": [
+    3,
+    3
+  ],
+  "ensemble_name": "rasa_core.policies.ensemble.SimplePolicyEnsemble",
+  "policy_names": [
+    "rasa_core.policies.keras_policy.KerasPolicy",
+    "rasa_core.policies.memoization.MemoizationPolicy"
+  ],
+  "trained_at": "20190403-014203"
+}

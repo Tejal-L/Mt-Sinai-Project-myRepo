@@ -1,0 +1,15 @@
+# flask
+flask
+
+# dependencies
+requests
+slackclient
+slackeventsapi
+
+python-dotenv
+
+# rasa
+rasa_core
+
+# Database
+redis

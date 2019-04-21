@@ -1,0 +1,73 @@
+version: '3.0'
+
+services:
+  rasa_core:
+    image: rasa/rasa_core:0.12.1
+    networks: ['rasa-network']
+    ports:
+      - 5005:5005
+    depends_on:
+      - "rasa_nlu"
+      - "action_server"
+    volumes:
+      - "./dialogue_models:/app/model"
+      - "./config:/app/config"
+      - "./core_data:/app/project"
+    command:
+      - start
+      - --core
+      - ./model/core
+      - -c
+      - rest
+      - --endpoints
+      - config/endpoints.yml
+      # - -u
+      # - current/nlu
+
+  rasa_nlu:
+    image: rasa/rasa_nlu:0.13.7-full
+    networks: ['rasa-network']
+    ports:
+      - "5000:5000"
+    volumes:
+      - "./nlu_models:/app/projects"
+      - "./logs:/app/logs"
+    command:
+      - start
+      - --pre_load
+      - all
+      - --path
+      - /app/projects
+      - --write
+      - /app/logs/nlu
+      - --response_log
+      - /app/logs"
+      - --verbose
+      - --debug
+
+  action_server:
+    image: rasa/rasa_core_sdk:latest
+    networks: ['rasa-network']
+    ports:
+      - "5055:5055"
+    volumes:
+      - "./actions:/app/actions"
+  
+  flask:
+    build: ./flask
+    networks: ['rasa-network']
+    env_file: ./flask/.env
+    depends_on:
+      - "rasa_nlu"
+    ports:
+      - "8085:5000"
+    volumes:
+      - ./flask:/app
+  
+  redis:
+    image: redis:latest
+    networks: ['rasa-network']
+    ports:
+      - "6379"
+
+networks: {rasa-network: {}}

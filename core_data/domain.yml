@@ -1,0 +1,102 @@
+intents:
+- greet
+- goodbye
+- thanks
+- deny
+- affirm
+- name
+<<<<<<< HEAD
+- surgery
+=======
+- pain_response
+>>>>>>> interactive/validate-intent
+
+
+entities:
+- name
+<<<<<<< HEAD
+- surgeryname
+- surgerytime
+=======
+- pain_level
+>>>>>>> interactive/validate-intent
+
+
+slots:
+  name:
+    type: text
+<<<<<<< HEAD
+  surgeryname:
+    type: text
+  surgerytime:
+    type: text
+
+=======
+  pain_level:
+    type: categorical
+    values:
+    - low
+    - medium
+    - high
+>>>>>>> interactive/validate-intent
+
+actions:
+- utter_name
+- utter_thanks
+- utter_greet
+- utter_goodbye
+<<<<<<< HEAD
+- action_joke
+- utter_surgerytime
+- utter_surgeryname
+
+=======
+- utter_thankful
+- utter_pain_query
+- utter_pain_level_query
+# - action_pain_response
+- utter_pain_response_low
+- utter_pain_response_med
+- utter_pain_response_high
+>>>>>>> interactive/validate-intent
+
+templates:
+  utter_name:
+  - text: "Hey there! Tell me your name."
+
+  utter_greet:
+  - text: "Nice to see you again {name}."
+
+  utter_goodbye:
+  - text: "Talk to you later!"
+  
+  utter_thanks:
+  - text: "My pleasure."
+
+<<<<<<< HEAD
+  utter_surgerytime:
+  - text: "When did you have {surgeryname} surgery?"
+
+  utter_surgeryname:
+  - text: "Which surgery did you have?"
+
+
+=======
+  utter_thankful:
+  - text: "That's great! I'm thankful"
+
+  utter_pain_query:
+  - text: "Are you feeling any pain post surgery?"
+
+  utter_pain_level_query:
+  - text: "Please indicate your level of pain. Low, Medium, or High?"
+
+  utter_pain_response_low:
+  - text: "During the first few weeks, some pain is expected. Make sure to take your pain medications as instructed by your doctor."
+
+  utter_pain_response_med:
+  - text: "During the first few weeks, some pain is expected. Make sure to take your pain medications as instructed by your doctor."
+
+  utter_pain_response_high:
+  - text: "You should make an appointment with your doctor and you can discuss stronger pain medication."
+>>>>>>> interactive/validate-intent

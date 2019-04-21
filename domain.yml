@@ -1,0 +1,98 @@
+intents:
+- greet
+- goodbye
+- thanks
+- deny
+- joke
+- name
+- pain_response
+- surgery_name
+- surgery_time
+
+
+entities:
+- name
+- pain_level
+- surgery_name
+- surgery_time
+
+
+slots:
+  name:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  pain_level:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.CategoricalSlot
+    values:
+    - low
+    - medium
+    - high
+  surgery_name:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  surgery_time:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.CategoricalSlot
+    values:
+    - one week
+    - one month
+    - more than one week
+
+
+actions:
+- utter_name
+- utter_thanks
+- utter_greet
+- utter_goodbye
+- action_joke
+- utter_pain_query
+- utter_pain_level_query
+- utter_pain_response_low
+- utter_pain_response_med
+- utter_pain_response_high
+
+
+templates:
+  utter_goodbye:
+  - text: "Talk to you later!"
+  utter_greet:
+  - text: "Nice to see you again {name}."
+  utter_name:
+  - text: "Hey there! Tell me your name."
+  utter_pain_level_query:
+  - text: "Please indicate your level of pain. Low, Medium, or High?"
+  utter_pain_query:
+  - text: "Are you feeling any pain post surgery?"
+  utter_pain_response_high:
+  - text: "You should make an appointment with your doctor and you can discuss stronger
+      pain medication."
+  utter_pain_response_low:
+  - text: "During the first few weeks, some pain is expected. Make sure to take your
+      pain medications as instructed by your doctor."
+  utter_pain_response_med:
+  - text: "During the first few weeks, some pain is expected. Make sure to take your
+      pain medications as instructed by your doctor."
+  utter_thankful:
+  - text: "That's great! I'm thankful"
+  utter_thanks:
+  - text: "My pleasure."
+  utter_surgery_time_query:
+  - text: "Please indicate when did you have the surgery?"
+  utter_surgery_time_one_week:
+  - text: "During the first week, you should be extra careful and follow all the medications 
+      prescribed by your doctor.  Make sure to get your check up done regularly for quick recovery. 
+      Are you feeling any pain post surgery?"
+  utter_surgery_time_one_month:
+  - text: "Some pain is expected during one month after surgery.
+      Are you feeling any pain post surgery?"
+  utter_surgery_time_more_than_one_month:
+  - text: "Please make appointment with your doctor for regular check ups to ensure quick recovery.
+      Are you feeling any pain post surgery?"
+  utter_surgery_name:
+  - text: "Can you tell me which surgery did you have?"
+

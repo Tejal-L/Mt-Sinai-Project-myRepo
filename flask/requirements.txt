@@ -1,0 +1,16 @@
+# flask
+flask
+
+# dependencies
+requests
+slackclient
+<<<<<<< HEAD
+slackeventsapi
+
+# rasa
+rasa_core
+=======
+
+# Database
+redis
+>>>>>>> 8ad4f0f08d6b384329944dd9683866b0b1164a91

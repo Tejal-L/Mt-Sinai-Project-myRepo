@@ -1,0 +1,71 @@
+%YAML 1.1
+---
+actions:
+- utter_name
+- utter_thanks
+- utter_greet
+- utter_goodbye
+- utter_thankful
+- utter_pain_query
+- utter_pain_level_query
+- utter_pain_response_low
+- utter_pain_response_med
+- utter_pain_response_high
+config:
+  store_entities_as_slots: true
+entities:
+- name
+- pain_level
+forms: []
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- thanks:
+    use_entities: true
+- deny:
+    use_entities: true
+- affirm:
+    use_entities: true
+- name:
+    use_entities: true
+- pain_response:
+    use_entities: true
+slots:
+  name:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  pain_level:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.CategoricalSlot
+    values:
+    - low
+    - medium
+    - high
+templates:
+  utter_goodbye:
+  - text: Talk to you later!
+  utter_greet:
+  - text: Nice to see you again {name}.
+  utter_name:
+  - text: Hey there! Tell me your name.
+  utter_pain_level_query:
+  - text: Please indicate your level of pain. Low, Medium, or High?
+  utter_pain_query:
+  - text: Are you feeling any pain post surgery?
+  utter_pain_response_high:
+  - text: You should make an appointment with your doctor and you can discuss stronger
+      pain medication.
+  utter_pain_response_low:
+  - text: During the first few weeks, some pain is expected. Make sure to take your
+      pain medications as instructed by your doctor.
+  utter_pain_response_med:
+  - text: During the first few weeks, some pain is expected. Make sure to take your
+      pain medications as instructed by your doctor.
+  utter_thankful:
+  - text: That's great! I'm thankful
+  utter_thanks:
+  - text: My pleasure.
